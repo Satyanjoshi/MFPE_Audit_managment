@@ -5,13 +5,7 @@
 <table>
   <tr>
       <td>
-        <a href="">Abhishek</a>
-        </td>
-      <td>
-        <a href="">Shubham</a>
-        </td>
-      <td>
-        <a href="https://github.com/shubhet">Shubham G</a>
+        <a href="https://github.com/shubhet">Shubham Gupta</a>
         </td>
       <td>
         <a href="https://github.com/satyanpjoshi">Satyan</a>
