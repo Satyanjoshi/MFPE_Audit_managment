@@ -1,4 +1,4 @@
-# CDE-MFPE-Project-Audit-Management-System
+# MFPE-Project-Audit-Management-System Using React
 
 ## Authors :
 
