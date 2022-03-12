@@ -24,7 +24,7 @@
 
 ## Overview::
 
-* ### How to run this project || Execution :
+* ### --How to run this project || Execution :
   ####Dependencies on Other microsevices : You should have Java 8 or any version above that, maven,NPM installed - to run this project
   Git clone the project first. Then follow the steps below :<br/>
 
