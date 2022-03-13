@@ -1,6 +1,6 @@
 # MFPE-Project-Audit-Management-System Using React
 
-## Authors :
+## Colabrators :
 
 <table>
   <tr>
@@ -11,7 +11,13 @@
         <a href="https://github.com/satyanpjoshi">Satyan</a>
         </td>
       <td>
-        <a href=">Harshada</a>
+        <a href="https://github.com/Harshadagangne">Harshada</a>
+        </td>
+    <td>
+        <a href="https://github.com/e">Shubham Dalvi</a>
+        </td>
+    <td>
+        <a href="https://github.com/">Abhishek Kumar</a>
         </td>
     </tr>
 </table>
