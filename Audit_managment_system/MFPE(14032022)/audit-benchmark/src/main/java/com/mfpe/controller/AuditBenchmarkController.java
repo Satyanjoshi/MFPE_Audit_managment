@@ -46,10 +46,5 @@ public class AuditBenchmarkController {
 		return auditBenchmarks;
 	}
 	
-	// Endpoint to check if the microservice is live
-	@GetMapping("/health-check")
-	public String healthCheck() {
-		return "Audit Benchmark Microservice is Active";
-	}
 	
 }
