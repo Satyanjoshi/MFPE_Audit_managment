@@ -68,7 +68,7 @@ public class AuditSeverityController {
 			// here we create Audit-response
 			auditResponse = auditResponseService.getAuditResponse(benchmarkList,auditType.getAuditType(), questionResponses);
 
-			// her saving response in DB
+			// here saving response in DB
 			auditResponse = auditResponseService.saveAuditResponse(auditResponse,auditRequest);
 			
 			logger.info("AuditResponse successfully created!!");
