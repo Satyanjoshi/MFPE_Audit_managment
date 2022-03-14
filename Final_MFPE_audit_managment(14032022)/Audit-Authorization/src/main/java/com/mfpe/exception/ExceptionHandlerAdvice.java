@@ -16,7 +16,7 @@ public class ExceptionHandlerAdvice {
 	Logger logger = LoggerFactory.getLogger("Auth-Exception-Handler-Advice");
 	
 	// here it handles if any exception occurs during validation...
-	// we we send a Invalid response to the Angular app if exception occurs
+	// we send a Invalid response to the React app if exception occurs
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<String> validationExceptions(MethodArgumentNotValidException ex) {
 	    ex.getBindingResult().getAllErrors().forEach((error) -> {
