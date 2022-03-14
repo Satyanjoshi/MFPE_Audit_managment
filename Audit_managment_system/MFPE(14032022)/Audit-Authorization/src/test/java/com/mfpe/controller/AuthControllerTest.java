@@ -42,39 +42,38 @@ public class AuthControllerTest {
 		AuthenticationRequest request = null;
 		ProjectManagerDetails projectManagerDetails = null;
 		ProjectManager projectManager = null;
-		// authenticating the User-Credentials - Correct
+		
 		request = new AuthenticationRequest();
 		request.setUsername("user1");
 		request.setPassword("abcd1234");
-		// making projectManager
+	
 		projectManager= new ProjectManager(1, "name1", "user1", "abcd1234", "Project1");
-		// making ProjectManagerDetails
+		
 		projectManagerDetails = new ProjectManagerDetails(projectManager);
-		// making fake token
+		
 		final String jwtToken = "jj.ww.tt";
 		// making response
 		response = new ResponseEntity<String>(jwtToken, HttpStatus.OK);
 		
-		// the correct flow
 		when(authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())))
 			.thenReturn(null);
 		when(projectManagerDetailsService.loadUserByUsername(request.getUsername())).thenReturn(projectManagerDetails);
 		when(jwtService.generateToken(projectManagerDetails)).thenReturn(jwtToken);
 		assertEquals(response, authController.generateJwt(request));
 		
-		// authenticating the User-Credentials - Wrong
+		
 		request = new AuthenticationRequest();
 		request.setUsername("invalidUser1");
 		request.setPassword("abcd1234");
 		// making projectManager
 		projectManager= null;
-		// making ProjectManagerDetails
+		
 		projectManagerDetails = null;
 		//no token generated
 		// making response
 		response = new ResponseEntity<String>("Not Authorized Project Manager", HttpStatus.FORBIDDEN);
 		
-		// the wrong flow
+	
 		when(authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())))
 			.thenReturn(null);
 		when(projectManagerDetailsService.loadUserByUsername(request.getUsername())).thenThrow(RuntimeException.class);
@@ -106,21 +105,20 @@ public class AuthControllerTest {
 							.thenReturn(projectManagerDetails);
 		when(jwtService.validateToken(jwtToken, projectManagerDetails)).thenReturn(true);	// correct
 		assertEquals(response, authController.validateJwt(jwtTokenHeader));
-		
-		// now for wrong
+	
 		jwtTokenHeader = "Bearer jj.wrong.tt";
-		// making projectManager
+	
 		projectManager= null;
-		// making ProjectManagerDetails
+		
 		projectManagerDetails = null;
-		// making authentication-response
+	
 		authenticationResponse = new AuthenticationResponse("Invalid", "Invalid", false);
 		username = "";
-		//first remove Bearer from Header
+	
 		jwtToken = jwtTokenHeader.substring(7);
 		response = new ResponseEntity<AuthenticationResponse>(authenticationResponse, HttpStatus.OK);
 		
-		// check the jwt is proper or not - success
+		
 		when(jwtService.extractUsername(jwtToken)).thenReturn(username);
 		when(projectManagerDetailsService.loadUserByUsername(username)).thenReturn(projectManagerDetails);
 		when(jwtService.validateToken(jwtToken, projectManagerDetails)).thenReturn(false);	// wrong
