@@ -17,7 +17,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuditType {
-	@NotEmpty(message = "First name is required")
+	@NotEmpty(message = "type is required")
 	private String auditType;
 	
 }
