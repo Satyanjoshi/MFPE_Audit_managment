@@ -1,6 +1,8 @@
 package com.mfpe.model;
 
 
+import javax.validation.constraints.NotEmpty;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +17,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AuditType {
+	
+	@NotEmpty(message = "AuditType is required")
 	private String auditType;
+	
 	
 }
